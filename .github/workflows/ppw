@@ -1,0 +1,259 @@
+# Load the required libraries
+library(shiny)
+library(shinydashboard)
+
+# Define the UI for the Shiny app
+ui <- dashboardPage(
+  dashboardHeader(title = "Personal Finance Learning Platform"),
+  dashboardSidebar(
+    sidebarMenu(
+      id = "tabs",
+      menuItem("Home", tabName = "home"),
+      menuItem("Module 1 - Taking Control", tabName = "module1", icon = icon("book")),
+      menuItem("Module 2 - Budgeting", tabName = "module2", icon = icon("book")),
+      menuItem("Module 3 - Investment Solutions", tabName = "module3", icon = icon("book")),
+      menuItem("Module 4 - Estate Planning", tabName = "module4", icon = icon("book")),
+      menuItem("Module 5 - Debt Management", tabName = "module5", icon = icon("book")),
+      menuItem("Contact", tabName = "contact", icon = icon("phone"))
+    ),
+    tags$style(".sidebar {background-color: purple;}"),
+    tags$style(".sidebar .treeview-menu {background-color: purple;}"),
+    tags$style(".treeview-menu li a {color: white;}")
+  ),
+  dashboardBody(
+    tabItems(
+      tabItem("home",
+              fluidRow(
+                box(
+                  title = "About Us",
+                  width = 12,
+                  h3("Mission"),
+                  p("Our mission is to empower individuals to take control of their financial future by providing accessible and comprehensive personal finance education."),
+                  h3("Vision"),
+                  p("Our vision is to create a world where everyone has the knowledge and tools to achieve financial security and prosperity."),
+                  h3("Core Values"),
+                  tags$ul(
+                    tags$li("Knowledge", style = "font-size: 16px;"),
+                    tags$li("Empowerment", style = "font-size: 16px;"),
+                    tags$li("Integrity", style = "font-size: 16px;"),
+                    tags$li("Accessibility", style = "font-size: 16px;")
+                  )
+                )
+              )
+      ),
+      
+      tabItem("module1",
+              fluidRow(
+                column(6, 
+                       h3("Financial Goal Setting"),
+                       # Add the YouTube video link here
+                       a(href = "https://youtu.be/FP5Od1Z7vYw",
+                         tags$img(src = "https://img.youtube.com/vi/FP5Od1Z7vYw/0.jpg", width = 320, height = 180)
+                       ),
+                       actionButton("show_transcript_1", "Show Transcript"),
+                       conditionalPanel(
+                         condition = "input.show_transcript_1 > 0",
+                         verbatimTextOutput("transcript_1")
+                       )
+                ),
+                column(6,
+                       h3("Financial Goal Setting process"),
+                       # Add the YouTube video link here
+                       a(href = "https://youtu.be/FP5Od1Z7vYw",
+                         tags$img(src = "https://img.youtube.com/vi/FP5Od1Z7vYw/0.jpg", width = 320, height = 180)
+                       ),
+                       actionButton("show_transcript_2", "Show Transcript"),
+                       conditionalPanel(
+                         condition = "input.show_transcript_2 > 0",
+                         verbatimTextOutput("transcript_2")
+                       )
+                )
+              )
+      ),
+      
+      tabItem("module2",
+              fluidRow(
+                column(6, 
+                       h3("Budgeting Basics"),
+                       # Add the YouTube video link here
+                       a(href = "https://youtu.be/FP5Od1Z7vYw",
+                         tags$img(src = "https://img.youtube.com/vi/FP5Od1Z7vYw/0.jpg", width = 320, height = 180)
+                       ),
+                       actionButton("show_transcript_3", "Show Transcript"),
+                       conditionalPanel(
+                         condition = "input.show_transcript_3 > 0",
+                         verbatimTextOutput("transcript_3")
+                       )
+                ),
+                column(6,
+                       h3("50:30:20 Rule"),
+                       # Add the YouTube video link here
+                       a(href = "https://youtu.be/FP5Od1Z7vYw",
+                         tags$img(src = "https://img.youtube.com/vi/FP5Od1Z7vYw/0.jpg", width = 320, height = 180)
+                       ),
+                       actionButton("show_transcript_4", "Show Transcript"),
+                       conditionalPanel(
+                         condition = "input.show_transcript_4 > 0",
+                         verbatimTextOutput("transcript_4")
+                       )
+                )
+                # Continue with the rest of the videos for Module 2
+              )
+      ),
+      
+      tabItem("module3",
+              fluidRow(
+                column(6, 
+                       h3("Investment Journey"),
+                       # Add the YouTube video link here
+                       a(href = "https://youtu.be/FP5Od1Z7vYw",
+                         tags$img(src = "https://img.youtube.com/vi/FP5Od1Z7vYw/0.jpg", width = 320, height = 180)
+                       ),
+                       actionButton("show_transcript_5", "Show Transcript"),
+                       conditionalPanel(
+                         condition = "input.show_transcript_5 > 0",
+                         verbatimTextOutput("transcript_5")
+                       )
+                ),
+                column(6,
+                       h3("Types of Investments"),
+                       # Add the YouTube video link here
+                       a(href = "https://youtu.be/FP5Od1Z7vYw",
+                         tags$img(src = "https://img.youtube.com/vi/FP5Od1Z7vYw/0.jpg", width = 320, height = 180)
+                       ),
+                       actionButton("show_transcript_6", "Show Transcript"),
+                       conditionalPanel(
+                         condition = "input.show_transcript_6 > 0",
+                         verbatimTextOutput("transcript_6")
+                       )
+                )
+                # Continue with the rest of the videos for Module 3
+              )
+      ),
+      
+      tabItem("module4",
+              fluidRow(
+                column(6, 
+                       h3("Taxation"),
+                       # Add the YouTube video link here
+                       a(href = "https://youtu.be/FP5Od1Z7vYw",
+                         tags$img(src = "https://img.youtube.com/vi/FP5Od1Z7vYw/0.jpg", width = 320, height = 180)
+                       ),
+                       actionButton("show_transcript_7", "Show Transcript"),
+                       conditionalPanel(
+                         condition = "input.show_transcript_7 > 0",
+                         verbatimTextOutput("transcript_7")
+                       )
+                ),
+                column(6,
+                       h3("How to take advantage of taxes"),
+                       # Add the YouTube video link here
+                       a(href = "https://youtu.be/FP5Od1Z7vYw",
+                         tags$img(src = "https://img.youtube.com/vi/FP5Od1Z7vYw/0.jpg", width = 320, height = 180)
+                       ),
+                       actionButton("show_transcript_8", "Show Transcript"),
+                       conditionalPanel(
+                         condition = "input.show_transcript_8 > 0",
+                         verbatimTextOutput("transcript_8")
+                       )
+                )
+                # Continue with the rest of the videos for Module 4
+              )
+      ),
+      
+      tabItem("module5",
+              fluidRow(
+                column(6, 
+                       h3("Good and Bad Debt"),
+                       # Add the YouTube video link here
+                       a(href = "https://youtu.be/FP5Od1Z7vYw",
+                         tags$img(src = "https://img.youtube.com/vi/FP5Od1Z7vYw/0.jpg", width = 320, height = 180)
+                       ),
+                       actionButton("show_transcript_9", "Show Transcript"),
+                       conditionalPanel(
+                         condition = "input.show_transcript_9 > 0",
+                         verbatimTextOutput("transcript_9")
+                       )
+                ),
+                column(6,
+                       h3("Debt Snowball Method"),
+                       # Add the YouTube video link here
+                       a(href = "https://youtu.be/FP5Od1Z7vYw",
+                         tags$img(src = "https://img.youtube.com/vi/FP5Od1Z7vYw/0.jpg", width = 320, height = 180)
+                       ),
+                       actionButton("show_transcript_10", "Show Transcript"),
+                       conditionalPanel(
+                         condition = "input.show_transcript_10 > 0",
+                         verbatimTextOutput("transcript_10")
+                       )
+                )
+              ),
+              fluidRow(
+                column(6,
+                       h3("Debt Avalanche Method"),
+                       # Add the YouTube video link here
+                       a(href = "https://youtu.be/FP5Od1Z7vYw",
+                         tags$img(src = "https://img.youtube.com/vi/FP5Od1Z7vYw/0.jpg", width = 320, height = 180)
+                       ),
+                       actionButton("show_transcript_11", "Show Transcript"),
+                       conditionalPanel(
+                         condition = "input.show_transcript_11 > 0",
+                         verbatimTextOutput("transcript_11")
+                       )
+                ),
+                column(6,
+                       h3("Getting out of Debt"),
+                       # Add the YouTube video link here
+                       a(href = "https://youtu.be/FP5Od1Z7vYw",
+                         tags$img(src = "https://img.youtube.com/vi/FP5Od1Z7vYw/0.jpg", width = 320, height = 180)
+                       ),
+                       actionButton("show_transcript_12", "Show Transcript"),
+                       conditionalPanel(
+                         condition = "input.show_transcript_12 > 0",
+                         verbatimTextOutput("transcript_12")
+                       )
+                )
+              )
+      ),
+      
+      tabItem("contact",
+              # Add the code for the Contact Page here
+      )
+    )
+  )
+)
+
+# Define the server logic
+server <- function(input, output, session) {
+  # Transcripts for each video (you can replace the example text with the actual transcripts)
+  output$transcript_1 <- renderText("Returns on bank deposits are generally lower compared to other investment options like stocks, bonds, or real estate. However, they are considered low-risk investments, providing stability and security for individuals looking to preserve capital and earn modest returns.
+")
+  output$transcript_2 <- renderText("TReturns on bank deposits are generally lower compared to other investment options like stocks, bonds, or real estate. However, they are considered low-risk investments, providing stability and security for individuals looking to preserve capital and earn modest returns.
+.")
+  output$transcript_3 <- renderText("Returns on bank deposits are generally lower compared to other investment options like stocks, bonds, or real estate. However, they are considered low-risk investments, providing stability and security for individuals looking to preserve capital and earn modest returns.
+.")
+  output$transcript_4 <- renderText("Returns on bank deposits are generally lower compared to other investment options like stocks, bonds, or real estate. However, they are considered low-risk investments, providing stability and security for individuals looking to preserve capital and earn modest returns.
+.")
+  output$transcript_5 <- renderText("Returns on bank deposits are generally lower compared to other investment options like stocks, bonds, or real estate. However, they are considered low-risk investments, providing stability and security for individuals looking to preserve capital and earn modest returns.
+.")
+  output$transcript_6 <- renderText("Returns on bank deposits are generally lower compared to other investment options like stocks, bonds, or real estate. However, they are considered low-risk investments, providing stability and security for individuals looking to preserve capital and earn modest returns.
+")
+  output$transcript_7 <- renderText("Returns on bank deposits are generally lower compared to other investment options like stocks, bonds, or real estate. However, they are considered low-risk investments, providing stability and security for individuals looking to preserve capital and earn modest returns.
+")
+  output$transcript_8 <- renderText("returns on bank deposits are generally lower compared to other investment options like stocks, bonds, or real estate. However, they are considered low-risk investments, providing stability and security for individuals looking to preserve capital and earn modest returns.
+.")
+  output$transcript_9 <- renderText("Returns on bank deposits are generally lower compared to other investment options like stocks, bonds, or real estate. However, they are considered low-risk investments, providing stability and security for individuals looking to preserve capital and earn modest returns.
+")
+  output$transcript_10 <- renderText("Returns on bank deposits are generally lower compared to other investment options like stocks, bonds, or real estate. However, they are considered low-risk investments, providing stability and security for individuals looking to preserve capital and earn modest returns.
+.")
+  output$transcript_11 <- renderText("Returns on bank deposits are generally lower compared to other investment options like stocks, bonds, or real estate. However, they are considered low-risk investments, providing stability and security for individuals looking to preserve capital and earn modest returns.
+")
+  output$transcript_12 <- renderText("Returns on bank deposits are generally lower compared to other investment options like stocks, bonds, or real estate. However, they are considered low-risk investments, providing stability and security for individuals looking to preserve capital and earn modest returns.
+")
+  # Add the rest of the transcripts for each video
+  
+  # Add server logic here if needed
+}
+
+# Run the Shiny app
+shinyApp(ui, server)
